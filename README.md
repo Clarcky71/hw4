@@ -1,1 +1,7 @@
 # hw4
+
+Guillaume CADAPEAUD
+
+Mickael REVILLON
+
+IRA RAZAFINDRAHAINGO
