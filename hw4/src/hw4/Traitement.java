@@ -10,6 +10,8 @@ public class Traitement extends Thread {
 	String sid;
 	int freq;
 	String link;
+	String ligne;
+	Filtre1 filtre1 = new Filtre1();
 	
 	public Traitement(String name, ArrayList<String> info){  
 		super(name);
@@ -19,22 +21,16 @@ public class Traitement extends Thread {
 	}
 	  
 	public void run(){
-			/*System.out.println(this.getName());
-			System.out.println(this.sid);
-			System.out.println(this.freq);
-			System.out.println(this.link);*/
 			while(true){
 			try{
 				InputStream flux=new FileInputStream("hw4/Ressource/"+this.link);
 				InputStreamReader lecture=new InputStreamReader(flux);
 				BufferedReader buff=new BufferedReader(lecture);
-				String ligne;
 				while ((ligne=buff.readLine())!=null){
 					System.out.println(this.sid);
-					System.out.println(ligne);
-			    
+					filtre1.Filtre(ligne.trim());
 				}
-				buff.close(); 
+				buff.close();
 			}		
 			catch (Exception e){
 				System.out.println(e.toString());
@@ -45,6 +41,6 @@ public class Traitement extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}		
-		}	
+		}
 	}       
 }
