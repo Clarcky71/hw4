@@ -10,8 +10,8 @@ public class Traitement extends Thread {
 	String sid;
 	int freq;
 	String link;
-	String ligne;
 	Filtre1 filtre1 = new Filtre1();
+	Filtre2 filtre2 = new Filtre2();
 	
 	public Traitement(String name, ArrayList<String> info){  
 		super(name);
@@ -23,14 +23,19 @@ public class Traitement extends Thread {
 	public void run(){
 			while(true){
 			try{
-				InputStream flux=new FileInputStream("hw4/Ressource/"+this.link);
+				InputStream flux=new FileInputStream(this.link); 
 				InputStreamReader lecture=new InputStreamReader(flux);
 				BufferedReader buff=new BufferedReader(lecture);
+				String ligne;
 				while ((ligne=buff.readLine())!=null){
-					System.out.println(this.sid);
-					filtre1.Filtre(ligne.trim());
+					//filtre1 affiche les valeurs des sensors en continue
+					System.out.println(filtre1.Filtre(ligne,this.sid));
+					
+					//filtre2 affiche les valeurs des sensors seulement si changement
+					filtre2.Filtre(filtre1.Filtre(ligne,this.sid));
+			    
 				}
-				buff.close();
+				buff.close(); 
 			}		
 			catch (Exception e){
 				System.out.println(e.toString());
@@ -41,6 +46,6 @@ public class Traitement extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}		
-		}
+		}	
 	}       
 }
