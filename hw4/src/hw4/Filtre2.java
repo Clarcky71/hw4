@@ -12,7 +12,6 @@ public class Filtre2 {
         if (filtre.equals(valPrec)==false) {
         	valPrec = filtre;
             System.out.println("Filtre2 "+filtre);
-
         }
 
     }

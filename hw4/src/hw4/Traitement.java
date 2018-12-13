@@ -23,7 +23,7 @@ public class Traitement extends Thread {
 	public void run(){
 			while(true){
 			try{
-				InputStream flux=new FileInputStream(this.link); 
+				InputStream flux=new FileInputStream("hw4/Ressource/"+this.link);
 				InputStreamReader lecture=new InputStreamReader(flux);
 				BufferedReader buff=new BufferedReader(lecture);
 				String ligne;
