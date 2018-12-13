@@ -13,9 +13,9 @@ public class Main {
 	public static void main(String[] args) {
 		ArrayList<String> sensorInfo=new ArrayList<String>();
 		int num =0;
-		
+
 		try{
-			InputStream flux=new FileInputStream("sensorList.txt"); 
+			InputStream flux=new FileInputStream("hw4/Ressource/sensorList.txt");
 			InputStreamReader lecture=new InputStreamReader(flux);
 			BufferedReader buff=new BufferedReader(lecture);
 			String ligne;

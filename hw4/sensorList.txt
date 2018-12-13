@@ -1,7 +1,0 @@
-SID: S01
-FRQ: 3000
-LNK: sen1.txt
-
-SID: S02
-FRQ: 1000
-LNK: sen2.txt
